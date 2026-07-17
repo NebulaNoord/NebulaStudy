@@ -63,6 +63,8 @@ ul,ol{list-style:none}
 ::-webkit-scrollbar-thumb:hover{background:rgba(17,17,17,0.28)}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:6px;border:2px solid var(--bg-base)}
 ::-webkit-scrollbar-thumb:hover{background:rgba(17,17,17,0.3)}
+.page{display:none;position:relative;z-index:1}
+.page.active{display:block}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:11px 20px;border-radius:0;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;transition:all var(--t-fast);cursor:pointer;border:none;white-space:nowrap;font-family:var(--font-body)}
 .btn-primary{background:var(--accent);color:#FFFFFF;font-weight:600;box-shadow:none}
 .btn-primary:hover{background:var(--accent-strong);box-shadow:none}
