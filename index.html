@@ -12,46 +12,43 @@
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg-base:#F4F2EC;--bg-base-2:#EFEDE5;--bg-surface:#FFFFFF;--bg-elevated:#FAFAF7;
-  --glass-border:rgba(17,17,17,0.14);--glass-border-strong:rgba(17,17,17,0.26);
-  --border:rgba(17,17,17,0.14);--border-subtle:rgba(17,17,17,0.08);
-  --accent:#F97316;--accent-strong:#EA580C;--accent-soft:rgba(249,115,22,0.08);
-  --accent-2:#15803D;--accent-2-soft:rgba(21,128,61,0.10);
-  --accent-3:#0057FF;--accent-3-soft:rgba(0,87,255,0.08);
-  --accent-border:rgba(249,115,22,0.30);
+  --bg-base:#FAF7F2;--bg-base-2:#F1ECE3;--bg-surface:#FFFFFF;--bg-elevated:#F6F2EA;
+  --glass-border:rgba(17,17,17,0.12);--glass-border-strong:rgba(17,17,17,0.22);
+  --border:rgba(17,17,17,0.12);--border-subtle:rgba(17,17,17,0.07);
+  --accent:#1D4ED8;--accent-strong:#1740B0;--accent-soft:rgba(29,78,216,0.08);
+  --accent-2:#A3E635;--accent-2-soft:rgba(163,230,53,0.16);
+  --accent-3:#FF6B57;--accent-3-soft:rgba(255,107,87,0.12);
+  --accent-border:rgba(29,78,216,0.30);
   --text-primary:#111111;--text-secondary:#3A3A38;--text-muted:#8A8A82;
-  --success:#00A268;--success-soft:rgba(0,162,104,0.10);
+  --success:#16A34A;--success-soft:rgba(22,163,74,0.10);
   --danger:#E5322A;--danger-soft:rgba(229,50,42,0.09);
-  --info:#0057FF;--info-soft:rgba(0,87,255,0.08);
+  --info:#1D4ED8;--info-soft:rgba(29,78,216,0.08);
   --warn:#E0A400;
   --font-display:'Space Grotesk',-apple-system,system-ui,sans-serif;
   --font-body:'Inter',-apple-system,system-ui,sans-serif;
   --font-mono:'JetBrains Mono',monospace;
-  --r-sm:0px;--r-md:0px;--r-lg:0px;--r-xl:0px;--r-2xl:0px;--r-full:0px;
-  --shadow-sm:none;
-  --shadow-md:none;
-  --shadow-modal:0 24px 70px rgba(17,17,17,0.18);
+  --r-sm:4px;--r-md:8px;--r-lg:14px;--r-xl:20px;--r-2xl:28px;--r-full:9999px;
+  --shadow-sm:0 1px 2px rgba(17,17,17,0.05);
+  --shadow-md:0 14px 40px rgba(17,17,17,0.07);
+  --shadow-modal:0 30px 80px rgba(17,17,17,0.16);
   --glow:none;
-  --t-fast:140ms ease;--t-base:220ms ease;--t-slow:440ms cubic-bezier(0.16,1,0.32,1);
+  --t-fast:150ms cubic-bezier(0.2,0.7,0.3,1);--t-base:280ms cubic-bezier(0.2,0.7,0.3,1);--t-slow:600ms cubic-bezier(0.16,1,0.32,1);
   --sidebar-w:248px;
 }
 html{scroll-behavior:smooth;height:100%}
-body{background:var(--bg-base);color:var(--text-primary);font-family:var(--font-body);font-size:14.5px;line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;min-height:100%;position:relative;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;background-image:
-  repeating-linear-gradient(90deg,transparent 0,transparent calc((100% - 96px)/12 - 1px),rgba(17,17,17,0.035) calc((100% - 96px)/12 - 1px),rgba(17,17,17,0.035) calc((100% - 96px)/12)),
-  linear-gradient(rgba(17,17,17,0.025) 1px,transparent 1px);
-  background-size:auto,96px 96px}
+body{background:var(--bg-base);color:var(--text-primary);font-family:var(--font-body);font-size:14.5px;line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;min-height:100%;position:relative;overflow-x:hidden;transition:background-color var(--t-slow)}
+body::before{content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;background:
+  radial-gradient(60vw 60vw at 12% 8%,rgba(29,78,216,0.10),transparent 60%),
+  radial-gradient(48vw 48vw at 92% 18%,rgba(255,107,87,0.09),transparent 62%),
+  radial-gradient(52vw 52vw at 78% 96%,rgba(163,230,53,0.10),transparent 60%);
+  transition:opacity var(--t-slow)}
 body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:
-  radial-gradient(1.5px 1.5px at 18% 24%,rgba(17,17,17,0.14),transparent),
-  radial-gradient(1.5px 1.5px at 72% 16%,rgba(17,17,17,0.12),transparent),
-  radial-gradient(1.5px 1.5px at 42% 64%,rgba(17,17,17,0.13),transparent),
-  radial-gradient(1.5px 1.5px at 88% 52%,rgba(17,17,17,0.10),transparent),
-  radial-gradient(1.5px 1.5px at 30% 84%,rgba(17,17,17,0.12),transparent),
-  radial-gradient(1.5px 1.5px at 60% 38%,rgba(17,17,17,0.09),transparent),
-  radial-gradient(1.5px 1.5px at 12% 60%,rgba(17,17,17,0.11),transparent),
-  radial-gradient(1.5px 1.5px at 94% 80%,rgba(17,17,17,0.10),transparent)}
+  radial-gradient(circle at 1px 1px,rgba(17,17,17,0.05) 1px,transparent 0);
+  background-size:34px 34px;opacity:0.6}
 @keyframes twinkle{from{opacity:1}to{opacity:1}}
-@keyframes auroraDrift{0%{transform:none}100%{transform:none}}
+@keyframes auroraDrift{0%{transform:none}100{transform:none}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
 a{color:inherit;text-decoration:none}
 button{cursor:pointer;border:none;background:none;font-family:var(--font-body);font-size:inherit;color:inherit}
 input,textarea,select{font-family:var(--font-body);font-size:inherit}
@@ -108,7 +105,11 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 </style>
 </head>
 <body>
-<div class="nebula-spine" aria-hidden="true">Nebula Study — 2026</div>
+<div class="bg-shapes" aria-hidden="true">
+  <span class="bg-shape bg-shape-1"></span>
+  <span class="bg-shape bg-shape-2"></span>
+  <span class="bg-shape bg-shape-3"></span>
+</div>
 
 
 <div id="toast-container"></div>
@@ -122,7 +123,8 @@ var Router = {
     document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
     document.getElementById('page-' + page).classList.add('active');
     window.scrollTo(0, 0);
-    if (page === 'dashboard') Dashboard.init();
+    if (typeof Motion !== 'undefined') { Motion.pageShift(page); Motion.reveal(); }
+    if (page === 'dashboard') { Dashboard.init(); if (typeof Motion !== 'undefined') Motion.apply(); }
     if (page === 'landing')   Landing.init();
   }
 };
@@ -220,7 +222,11 @@ body.ln-menu-open .ln-hamburger span:nth-child(3){transform:rotate(-45deg) trans
 .ln-eyebrow{display:inline-flex;align-items:center;gap:10px;padding:0;border:none;background:none;font-size:12px;font-weight:600;color:var(--text-primary);margin-bottom:28px;letter-spacing:0.18em;text-transform:uppercase}
 .ln-eyebrow-dot{width:8px;height:8px;border-radius:0;background:var(--accent-2)}
 .ln-h1{font-family:var(--font-display);font-size:clamp(52px,8vw,104px);font-weight:700;line-height:0.96;letter-spacing:-0.045em;margin-bottom:24px;color:var(--text-primary);text-transform:none}
-.ln-h1 em{font-style:normal;color:var(--accent);-webkit-text-fill-color:var(--accent)}
+.ln-colorbar{display:flex;gap:6px;margin:26px 0 4px;height:14px;width:min(280px,70%)}
+.ln-colorbar span{display:block;height:100%;flex:1}
+.ln-colorbar .cb-1{background:var(--accent)}
+.ln-colorbar .cb-2{background:var(--accent-2)}
+.ln-colorbar .cb-3{background:var(--accent-3)}
 .ln-sub{font-size:16px;color:var(--text-secondary);max-width:480px;margin:0 0 32px;line-height:1.7}
 .ln-cta-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
 .ln-btn-hero{padding:16px 30px;border-radius:0;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:all var(--t-fast);cursor:pointer;border:none;font-family:var(--font-body);letter-spacing:0.08em;text-transform:uppercase}
@@ -312,7 +318,23 @@ body.ln-menu-open .ln-hamburger span:nth-child(3){transform:rotate(-45deg) trans
 .ln-footer-bottom{border-top:1px solid var(--border-subtle);padding-top:22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .ln-footer-copy{font-size:13px;color:var(--text-muted)}
 .ln-page-mark{font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase}
-.nebula-spine{position:fixed;left:8px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-family:var(--font-mono);font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(17,17,17,0.22);z-index:1;pointer-events:none;user-select:none}
+.nebula-spine{display:none}
+.bg-shapes{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bg-shape{position:absolute;opacity:0.5}
+.bg-shape-1{width:220px;height:220px;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(163,230,53,0.55),rgba(163,230,53,0));top:8%;right:6%;animation:floatY 11s ease-in-out infinite}
+.bg-shape-2{width:160px;height:160px;border:14px solid rgba(29,78,216,0.18);bottom:14%;left:4%;animation:spinSlow 38s linear infinite}
+.bg-shape-3{width:120px;height:120px;background:rgba(255,107,87,0.16);transform:rotate(20deg);top:62%;right:14%;animation:floatY 9s ease-in-out infinite reverse}
+
+/* MOTION SYSTEM */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity var(--t-slow),transform var(--t-slow)}
+.reveal.in{opacity:1;transform:none}
+.tilt{transition:transform var(--t-fast)}
+body.motion-off *{animation:none !important;transition:none !important}
+body.motion-off .reveal{opacity:1;transform:none;transition:none}
+@media(prefers-reduced-motion:reduce){
+  body:not(.motion-on) *{animation:none !important}
+  body:not(.motion-on) .reveal{opacity:1;transform:none}
+}
 
 /* ANIMATIONS */
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
@@ -370,8 +392,9 @@ body.ln-menu-open .ln-hamburger span:nth-child(3){transform:rotate(-45deg) trans
   <div class="ln-hero-inner">
 
     <div class="ln-hero-copy">
-      <div class="ln-eyebrow"><span class="ln-eyebrow-dot"></span> 2026 · Study companion</div>
-      <h1 class="ln-h1">Study.<br>Everything<br>organized.</h1>
+      <div class="ln-eyebrow"><span class="ln-eyebrow-dot"></span> A study companion, reimagined</div>
+      <h1 class="ln-h1">LEARN.<br>Not harder.<br><em>Better.</em></h1>
+      <div class="ln-colorbar"><span class="cb-1"></span><span class="cb-2"></span><span class="cb-3"></span></div>
       <p class="ln-sub">A focused workspace that brings your timer, tasks, planner and notes together — so you spend less time organising and more time actually studying.</p>
       <div class="ln-cta-row">
         <button class="ln-btn-hero ln-btn-hero-primary" onclick="Router.go('dashboard')">
@@ -939,23 +962,23 @@ function buildShell() {
     </div>
     <nav class="db-nav" id="db-nav">
       <div class="db-nav-item active" data-panel="overview">
-        <span class="db-nav-icon">🏠</span> Overview
+        <span class="db-nav-icon">▦</span> Home
       </div>
       <div class="db-nav-item" data-panel="timer">
-        <span class="db-nav-icon">⏱</span> Focus Timer
+        <span class="db-nav-icon">◎</span> Focus
       </div>
       <div class="db-nav-item" data-panel="tasks">
-        <span class="db-nav-icon">📋</span> Tasks
+        <span class="db-nav-icon">✱</span> To Do
       </div>
       <div class="db-nav-item" data-panel="planner">
-        <span class="db-nav-icon">📅</span> Planner
+        <span class="db-nav-icon">▤</span> Calendar
       </div>
       <div class="db-nav-item" data-panel="notes">
-        <span class="db-nav-icon">📝</span> Notes
+        <span class="db-nav-icon">✎</span> Notes
       </div>
       <div class="db-nav-divider"></div>
       <div class="db-nav-item" data-panel="analytics">
-        <span class="db-nav-icon">📊</span> Analytics
+        <span class="db-nav-icon">▥</span> Performance
       </div>
       <div class="db-nav-divider"></div>
       <div class="db-nav-item" data-panel="__landing" style="color:var(--text-muted)">
@@ -979,8 +1002,9 @@ function buildShell() {
         <div class="db-greeting-title" id="db-greeting-title">Good morning</div>
       </div>
       <button class="btn btn-primary btn-sm" id="db-quick-add" onclick="Dashboard.quickAdd()">+ Add task</button>
-      <button class="db-fm-btn" onclick="Dashboard.enterFocusMode()" title="Focus Mode">🎯 Focus</button>
+      <button class="db-fm-btn" onclick="Dashboard.enterFocusMode()" title="Focus Mode">◎ Focus</button>
       <button class="db-cmd-btn" onclick="Dashboard.showCommandPalette()" title="Command palette (Ctrl/Cmd+K)">⌘K</button>
+      <button class="db-cmd-btn motion-toggle" id="motion-toggle" title="Toggle motion" onclick="Motion.toggle()">Motion</button>
     </div>
 
     <div id="db-content">
@@ -1203,22 +1227,22 @@ function renderOverview() {
 
   el.innerHTML = `
     <div class="db-stats-row">
-      <div class="db-stat-card">
-        <div class="db-stat-icon">📋</div>
+      <div class="db-stat-card" data-tilt>
+        <div class="db-stat-icon">▦</div>
         <div class="db-stat-value" data-count="${totalTasks - doneTasks}">${totalTasks - doneTasks}</div>
         <div class="db-stat-label">Active tasks</div>
       </div>
-      <div class="db-stat-card">
+      <div class="db-stat-card" data-tilt>
         <div class="db-stat-icon">✅</div>
         <div class="db-stat-value" data-count="${doneTasks}">${doneTasks}</div>
         <div class="db-stat-label">Completed</div>
       </div>
-      <div class="db-stat-card">
+      <div class="db-stat-card" data-tilt>
         <div class="db-stat-icon">⏱</div>
         <div class="db-stat-value" data-count="${todayMins}">${todayMins}m</div>
-        <div class="db-stat-label">Studied today</div>
+        <div class="db-stat-label">Minutes today</div>
       </div>
-      <div class="db-stat-card">
+      <div class="db-stat-card" data-tilt>
         <div class="db-stat-icon">🔥</div>
         <div class="db-stat-value" data-count="${streak}">${streak}</div>
         <div class="db-stat-label">Day streak</div>
@@ -1287,7 +1311,7 @@ function renderOverview() {
       <!-- Upcoming exams / assignments = tasks with due -->
       <div class="db-card">
         <div class="db-card-title"><span class="db-card-title-text">📌 Upcoming</span><button class="btn btn-ghost btn-sm" onclick="Dashboard.switchPanel('tasks')">All →</button></div>
-        ${[...tasks].filter(t=>t.status!=='done' && t.due).sort((a,b)=>new Date(a.due)-new Date(b.due)).slice(0,4).map(t=>`<div class="upcoming-row"><span class="priority-dot p-${t.priority}"></span><span class="upcoming-title">${escapeHtml(t.title)}</span><span class="upcoming-due">${formatShortDate(new Date(t.due))}</span></div>`).join('') || '<div class="empty-state"><div class="empty-state-icon">🗓️</div>Nothing due soon</div>'}
+        ${[...tasks].filter(t=>t.status!=='done' && t.due).sort((a,b)=>new Date(a.due)-new Date(b.due)).slice(0,4).map(t=>`<div class="upcoming-row"><span class="priority-dot p-${t.priority}"></span><span class="upcoming-title">${escapeHtml(t.title)}</span><span class="upcoming-due">${formatShortDate(new Date(t.due))}</span></div>`).join('') || '<div class="empty-state"><div class="empty-state-icon">🗓️</div>Inbox cleared. Nice.</div>'}
       </div>
     </div>
 
@@ -1314,7 +1338,7 @@ function renderOverview() {
               <div class="priority-dot p-${t.priority}"></div>
             </div>
           </div>
-        `).join('') || '<div class="empty-state"><div class="empty-state-icon">🎉</div>No active tasks!</div>'}
+        `).join('') || '<div class="empty-state"><div class="empty-state-icon">🎉</div>No active tasks. Inbox zero.</div>'}
         <button class="kanban-add-btn" onclick="Dashboard.openTaskModal()" style="margin-top:4px">+ Add task</button>
       </div>
     </div>
@@ -1704,8 +1728,8 @@ function timerComplete() {
   }
 
   showToast(state.timer.mode === 'focus'
-    ? `🎯 Focus session complete! (${mins} min)`
-    : `☕ Break complete! Ready to focus?`, 'success');
+    ? `🎯 Nice work — ${mins} focused minutes in the bank.`
+    : `☕ Break's over. Back to it?`, 'success');
 
   // Auto next mode
   if (state.timer.mode === 'focus') {
@@ -1795,7 +1819,7 @@ function saveTask() {
     showToast('Task updated', 'success');
   } else {
     state.tasks.push({ id: 't'+Date.now(), title, subject, priority, status: defaultStatus, due });
-    showToast('Task added', 'success');
+    showToast('Task added — let\'s go', 'success');
   }
   save(STORAGE_KEYS.tasks, state.tasks);
   closeTaskModal();
@@ -1837,7 +1861,7 @@ function saveNote() {
     showToast('Note updated', 'success');
   } else {
     state.notes.unshift({ id: 'n'+Date.now(), title, subject, content, created: Date.now() });
-    showToast('Note saved', 'success');
+    showToast('Note saved — nicely done', 'success');
   }
   save(STORAGE_KEYS.notes, state.notes);
   closeNoteModal();
@@ -2082,9 +2106,11 @@ function updateGreeting() {
 
 /* ── MICRO-ANIMATIONS / MASCOT / EFFECTS ───────────────── */
 function countUpAll(root) {
+  const off = document.body.classList.contains('motion-off');
   root.querySelectorAll('[data-count]').forEach(el => {
     const target = parseFloat(el.dataset.count);
     const isTime = el.textContent.includes('m');
+    if (off) { el.textContent = isTime ? target + 'm' : target; return; }
     const dur = 700; const start = performance.now();
     function step(now) {
       const p = Math.min(1, (now - start) / dur);
@@ -2413,6 +2439,67 @@ document.addEventListener('keydown', function(e) {
 
 <script>
 Landing.init();
+
+/* ── MOTION SYSTEM ─────────────────────────────────────────── */
+var Motion = (function(){
+  var KEY = 'ns_motion';
+  function get(){ try{ return localStorage.getItem(KEY); }catch(e){ return null; } }
+  function apply(){
+    var pref = get();
+    var on = pref === null ? true : pref === 'on';
+    document.body.classList.toggle('motion-on', on);
+    document.body.classList.toggle('motion-off', !on);
+    var t = document.getElementById('motion-toggle');
+    if(t) t.textContent = on ? 'Motion On' : 'Motion Off';
+  }
+  function toggle(){
+    var on = !document.body.classList.contains('motion-off');
+    try{ localStorage.setItem(KEY, on ? 'off' : 'on'); }catch(e){}
+    apply();
+  }
+  function countUp(el, target, dur){
+    if(document.body.classList.contains('motion-off')){ el.textContent = target; return; }
+    var start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start)/dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = Math.round(eased * target);
+      el.textContent = (target % 1 === 0) ? val : val.toFixed(1);
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  function reveal(){
+    document.querySelectorAll('.db-card:not(.reveal), .db-stat-card:not(.reveal), .db-panel.active .reveal').forEach(function(e){ e.classList.add('reveal'); });
+    var els = document.querySelectorAll('.reveal:not(.in)');
+    if(!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en, i){
+        if(en.isIntersecting){ setTimeout(function(){ en.target.classList.add('in'); }, i*70); io.unobserve(en.target); }
+      });
+    }, {threshold:0.12});
+    els.forEach(function(e){ io.observe(e); });
+  }
+  function tilt(){
+    if(document.body.classList.contains('motion-off')) return;
+    document.querySelectorAll('[data-tilt]').forEach(function(c){
+      c.addEventListener('mousemove', function(e){
+        var r = c.getBoundingClientRect();
+        var dx = (e.clientX - r.left)/r.width - 0.5;
+        var dy = (e.clientY - r.top)/r.height - 0.5;
+        c.style.transform = 'perspective(800px) rotateX('+(-dy*3)+'deg) rotateY('+(dx*3)+'deg)';
+      });
+      c.addEventListener('mouseleave', function(){ c.style.transform = ''; });
+    });
+  }
+  function pageShift(panel){
+    var map = {overview:'#FAF7F2', timer:'#F2F4FA', tasks:'#FAF2F2', planner:'#F2FAF3', notes:'#FBF7F0', analytics:'#F3F1FA'};
+    document.body.style.backgroundColor = map[panel] || 'var(--bg-base)';
+  }
+  return { init: function(){ apply(); reveal(); tilt(); }, apply: apply, toggle: toggle, countUp: countUp, reveal: reveal, tilt: tilt, pageShift: pageShift };
+})();
+document.addEventListener('DOMContentLoaded', function(){ Motion.init(); });
 </script>
 
 </body>
